@@ -12,13 +12,13 @@ public class Solution {
         }
 
         // Step 2: BFS from root to get level map and max depth
-        Map<Integer, List<Integer>> levelMap = new HashMap<>();
-        boolean[] visited = new boolean[A + 1];
-        Queue<int[]> queue = new LinkedList<>();
-        queue.add(new int[]{1, 0});  // node, level
+        Map<Integer, List<Integer>> levelMap = new HashMap<>();// Initialize the level map to store values at each depth level
+        boolean[] visited = new boolean[A + 1]; // Visited array to make sure each node is processed only once
+        Queue<int[]> queue = new LinkedList<>();// // BFS queue to process nodes level by level
+        queue.add(new int[]{1, 0});  // node, level , Start BFS from the root node (node 1) at level 0
         visited[1] = true;
 
-        int maxDepth = 0;
+        int maxDepth = 0; // Initialize the maxDepth variable
 
         while (!queue.isEmpty()) {
             int[] curr = queue.poll();
