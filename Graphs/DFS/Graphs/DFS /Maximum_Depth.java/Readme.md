@@ -9,7 +9,7 @@ Perform a Breadth-First Search (BFS) starting from node 1 (root).
 Create a level map: group node values (from D[]) based on their level in the tree.
 Calculate the maximum depth (height) of the tree.
 
-🪜 Algorithm Steps
+Algorithm Steps
 
 ✅ Step 1: Build the Tree (Adjacency List)
 Initialize a list of lists: List<List<Integer>> tree = new ArrayList<>();
@@ -37,7 +37,7 @@ Enqueue with level + 1
 levelMap will contain all node values grouped by level
 maxDepth gives the maximum depth (0-indexed) of the tree
 
-📦 Example
+Example
 Input:
 A = 4
 B = [1, 1, 2]
@@ -62,7 +62,7 @@ Level Map:
 }
 Maximum Depth: 2
 
-🛠️ Time & Space Complexity
+Time & Space Complexity
 Time Complexity: O(A) → Each node and edge is processed once
 
 Space Complexity: O(A) → For adjacency list, level map, and queue
