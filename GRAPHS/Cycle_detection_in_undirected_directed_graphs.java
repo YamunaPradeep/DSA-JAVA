@@ -1,13 +1,5 @@
-//CYCLE DETECTION IN UNDIRECTED GRAPH
-//🔸 Key Point:
-//In an undirected graph, a cycle exists if we revisit a node that is not the parent of the current node during DFS.
+//Cycle Detection in an Undirected Graph (Using DFS)
 
-//🔹 DFS-Based Algorithm (Java Style):
-
-✅ Cycle Detection in an Undirected Graph (Using DFS)
-java
-Copy
-Edit
 public class Solution {
     public boolean isCycle(int n, int[][] edges) {
         // Step 1: Build the adjacency list
@@ -49,10 +41,8 @@ public class Solution {
         return false;
     }
 }
-✅ Cycle Detection in a Directed Graph (Using DFS + Recursion Stack)
-java
-Copy
-Edit
+// Cycle Detection in a Directed Graph (Using DFS + Recursion Stack)
+]
 public class Solution {
     public boolean isCycle(int n, int[][] edges) {
         // Step 1: Build the adjacency list (directed)
