@@ -53,6 +53,62 @@ public class DFS_Traversal_ConnectedGraph {
 }
 
 
+/**
+ * DFS Traversal of a Connected Directed Graph
+ * 
+ * This program performs Depth-First Search starting from node 0
+ * in a directed graph and prints the traversal order.
+ */
+
+public class DFS_DirectedGraph {
+
+    public static void main(String[] args) {
+        int N = 5;
+
+        // Directed edges: u → v
+        int[][] edges = {
+            {0, 1},
+            {0, 2},
+            {1, 3},
+            {2, 4}
+        };
+
+        List<List<Integer>> graph = buildAdjList(N, edges);
+        boolean[] visited = new boolean[N];
+
+        System.out.print("DFS Traversal (Directed Graph): ");
+        dfs(0, graph, visited);
+    }
+
+    // Build adjacency list for a directed graph
+    public static List<List<Integer>> buildAdjList(int N, int[][] edges) {
+        List<List<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < N; i++) {
+            adj.add(new ArrayList<>());
+        }
+
+        for (int[] edge : edges) {
+            int u = edge[0], v = edge[1];
+            adj.get(u).add(v); // Directed edge u → v
+        }
+
+        return adj;
+    }
+
+    // DFS function for directed graph
+    public static void dfs(int node, List<List<Integer>> graph, boolean[] visited) {
+        visited[node] = true;
+        System.out.print(node + " ");
+
+        for (int neighbor : graph.get(node)) {
+            if (!visited[neighbor]) {
+                dfs(neighbor, graph, visited);
+            }
+        }
+    }
+}
+
+
 //For connected graphs, a single DFS from any node visits all nodes.
 //For disconnected graphs, you need to run DFS on all unvisited nodes to cover all components.
 
