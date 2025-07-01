@@ -85,6 +85,9 @@ public class Solution {
     }
 }
 
+//for undirected graph check if the nei != parent
+// for directed graph check if there is a backedge with the recStack[nei]
+//for the directed graph we need to use the recursionstack
 /*Graph Type	Time Complexity	Space Complexity
 Undirected	O(V + E)	O(V)
 Directed	O(V + E)	O(V)   */
