@@ -1,6 +1,0 @@
-/*inal Confirmed Understanding:
-✅ Input: Connected weighted undirected graph.
-
-✅ Output: Minimum total cost to connect all nodes (using MST).
-
-✅ Algorithm: Prim’s
