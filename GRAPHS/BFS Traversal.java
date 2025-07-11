@@ -1,27 +1,26 @@
 public class Solution {
-    public ArrayList<Integer> bfsTraversal(int A, ArrayList<ArrayList<Integer>> B) {
+    public int[] bfsTraversal(int A, int[][] B) {
         // A = number of nodes (0 to A-1)
-        // B = list of edges [u, v]
+        // B = edge list
 
-        // Step 1: Create adjacency list
-        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        // Step 1: Create adjacency list using arrays
+        List<Integer>[] adj = new ArrayList[A];
         for (int i = 0; i < A; i++) {
-            adj.add(new ArrayList<>());
+            adj[i] = new ArrayList<>();
         }
 
-        for (ArrayList<Integer> edge : B) {
-            int u = edge.get(0);
-            int v = edge.get(1);
-            adj.get(u).add(v);
-            adj.get(v).add(u); // comment this if graph is directed
+        for (int[] edge : B) {
+            int u = edge[0];
+            int v = edge[1];
+            adj[u].add(v);
+            adj[v].add(u); // remove this line for directed graph
         }
 
-        // Step 2: Prepare BFS traversal
+        // Step 2: BFS Traversal
         boolean[] visited = new boolean[A];
         Queue<Integer> q = new LinkedList<>();
-        ArrayList<Integer> result = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
 
-        // For disconnected graph, do BFS from all components
         for (int i = 0; i < A; i++) {
             if (!visited[i]) {
                 q.offer(i);
@@ -31,7 +30,7 @@ public class Solution {
                     int curr = q.poll();
                     result.add(curr);
 
-                    for (int neighbor : adj.get(curr)) {
+                    for (int neighbor : adj[curr]) {
                         if (!visited[neighbor]) {
                             visited[neighbor] = true;
                             q.offer(neighbor);
@@ -41,6 +40,12 @@ public class Solution {
             }
         }
 
-        return result;
+        // Convert result list to array
+        int[] ans = new int[result.size()];
+        for (int i = 0; i < result.size(); i++) {
+            ans[i] = result.get(i);
+        }
+
+        return ans;
     }
 }
